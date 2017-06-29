@@ -13,7 +13,7 @@ client.Dispatcher.on("GUILD_MEMBER_ADD", (g, m) => {
     var channels = g.textChannels;
     for(var c of channels){
         if (c.name == 'annnouncements'){
-            c.sendMessage("Please welcome to the "+m.mention+" to The Greyburg Manor!");
+            c.sendMessage("Please welcome "+m.mention+" to The Greyburg Manor!");
             break;
         }
     }
