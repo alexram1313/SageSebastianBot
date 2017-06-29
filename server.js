@@ -12,7 +12,7 @@ client.Dispatcher.on("GATEWAY_READY", e => {
 client.Dispatcher.on("GUILD_MEMBER_ADD", e => {
     var channels = e.guild.textChannels;
     channel = e.guild.textChannels.find(c => c.name == "announcements");
-    channel.sendMessage("Please welcome "+e.member.mention+" to "+e.guild.name+"!");
+    channel.sendMessage("@everyone Please welcome "+e.member.mention+" to "+e.guild.name+"!");
 });
 
 
