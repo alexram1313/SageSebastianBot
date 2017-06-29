@@ -14,7 +14,7 @@ client.Dispatcher.on("GUILD_MEMBER_ADD", e => {
     var channels = e.guild.textChannels;
     console.log(e.guild.channels);
     for(var c of channels){
-        if (c.name == 'annnouncements'){
+        if (c.name == 'announcements'){
             c.sendMessage("Please welcome "+e.member.mention+" to The Greyburg Manor!");
             break;
         }
