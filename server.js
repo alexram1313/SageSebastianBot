@@ -1,3 +1,4 @@
+var express = require('express');
 var app = express();
 var Discordie = require('discordie');
 var client    = new Discordie();
