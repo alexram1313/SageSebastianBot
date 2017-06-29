@@ -9,11 +9,12 @@ client.Dispatcher.on("GATEWAY_READY", e => {
     console.log("Hi Sage! I'm connected as", client.User.username);
 });
 
-client.Dispatcher.on("GUILD_MEMBER_ADD", (g, m) => {
-    var channels = g.textChannels;
+client.Dispatcher.on("GUILD_MEMBER_ADD", e => {
+    console.log("test");
+    var channels = e.guild.textChannels;
     for(var c of channels){
         if (c.name == 'annnouncements'){
-            c.sendMessage("Please welcome "+m.mention+" to The Greyburg Manor!");
+            c.sendMessage("Please welcome "+e.member.mention+" to The Greyburg Manor!");
             break;
         }
     }
