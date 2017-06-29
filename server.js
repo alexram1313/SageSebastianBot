@@ -1,3 +1,4 @@
+var app = express();
 var Discordie = require('discordie');
 var client    = new Discordie();
 
@@ -15,4 +16,12 @@ client.Dispatcher.on("GUILD_MEMBER_ADD", (g, m) => {
             break;
         }
     }
+});
+
+
+var server = app.listen(process.env.PORT || 8080, function () {
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log("API listening at http://%s:%s", host, port)
 });
