@@ -11,7 +11,7 @@ client.Dispatcher.on("GATEWAY_READY", e => {
 		//console.log(guild);
 		var g = client.Guilds.find(g => g.id == guild.id);
 		var channel = g.textChannels.find(c => c.name == "announcements");
-		channel.sendMessage("@everyone "+client.User.username+" is now greeting users!");
+		channel.sendMessage(client.User.username+" is now greeting users!");
 
 	}
 });
@@ -43,7 +43,7 @@ function exitHandler(options, err) {
 	var i = 0;
 	for (var g of client.Guilds){
 		var channel = g.textChannels.find(c => c.name == "announcements");
-		channel.sendMessage("@everyone "+client.User.username+" has finished his shift!");
+		channel.sendMessage(client.User.username+" has finished his shift!");
 		if (++i == gLen){
 			setTimeout(function(){ if (options.exit) process.exit(); }, 3000);
 		}
