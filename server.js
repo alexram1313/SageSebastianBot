@@ -1,12 +1,13 @@
+require('dotenv').config();
 var express = require('express');
 var app = express();
 var Discordie = require('discordie');
 var client    = new Discordie();
 
-client.connect({token:"MzI5ODM0MzIyMDI0NDY0Mzg1.DDYNtg.RrOuxMSsdO_HSfg50sbWodkmfjg"});
+client.connect({token:process.env.DISCORD_TOKEN});
 
 client.Dispatcher.on("GATEWAY_READY", e => {
-    	console.log("Hi Sage! I'm connected as", client.User.username);
+    	console.log("Hello! I'm connected as", client.User.username);
 	for (var guild of e.data.guilds){
 		//console.log(guild);
 		var g = client.Guilds.find(g => g.id == guild.id);
@@ -19,7 +20,7 @@ client.Dispatcher.on("GATEWAY_READY", e => {
 client.Dispatcher.on("GUILD_MEMBER_ADD", e => {
     var channels = e.guild.textChannels;
     channel = e.guild.textChannels.find(c => c.name == "announcements");
-    channel.sendMessage("@everyone Please welcome "+e.member.mention+" to "+e.guild.name+"!");
+    channel.sendMessage("Ladies and gentlemen, please welcome "+e.member.mention+" to "+e.guild.name+"!");
 });
 
 
